@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HeartRatePeripheralReciever"
+    android:background="@color/colorPrimaryDark"
+    android:theme="@style/PeripheralTheme">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_area"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Device &amp; Connection Details"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/black"
+                    android:layout_below="@+id/ble_devices_header"/>
+
+                <LinearLayout
+                    android:id="@+id/name"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Device Name:"
+                        android:textSize="14sp" />
+
+                    <Space android:layout_width="5dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/device_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/defualt_value"
+                        android:textSize="17sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/address"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Device Address:"
+                        android:textSize="14sp" />
+
+                    <Space android:layout_width="5dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/device_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/defualt_value"
+                        android:textSize="17sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/connection"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Connection Status:"
+                        android:textSize="14sp" />
+
+                    <Space android:layout_width="5dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/device_conection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Connecting..."
+                        android:textSize="17sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_area"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Data"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/black"
+                    android:layout_below="@+id/ble_devices_header"/>
+
+                <LinearLayout
+                    android:id="@+id/heart"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Heart Rate:"
+                        android:textSize="14sp" />
+
+                    <Space android:layout_width="5dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/heart_rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/defualt_value"
+                        android:textSize="17sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/energy"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Energy Expended:"
+                        android:textSize="14sp" />
+
+                    <Space android:layout_width="5dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/energy_expended"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/defualt_value"
+                        android:textSize="17sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/location"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Body Sensor Location:"
+                        android:textSize="14sp" />
+
+                    <Space android:layout_width="5dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView android:id="@+id/sensor_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/defualt_value"
+                        android:textSize="17sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+    <FrameLayout
+        android:id="@+id/disconnect"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_area">
+
+        <ImageView
+            android:id="@+id/cancel"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/cancel"
+            android:layout_gravity="center"
+            android:tint="@color/colorAccent"/>
+
+    </FrameLayout>
+
+</RelativeLayout>
+
+<!--<TextView
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Device &amp; Connection Details"
+android:textSize="24sp"
+android:textStyle="bold"
+android:layout_marginBottom="5dp"/>
+
+<View
+android:layout_width="match_parent"
+android:layout_height="2dp"
+android:background="@color/white"
+android:layout_below="@+id/ble_devices_header"/>
+
+<LinearLayout
+android:id="@+id/name"
+android:orientation="horizontal"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_margin="10dp">
+
+<TextView android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Device Name:"
+    android:textSize="14sp" />
+
+<Space android:layout_width="5dp"
+    android:layout_height="wrap_content"/>
+
+<TextView android:id="@+id/device_name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="dummy name"
+    android:textSize="17sp"/>
+
+</LinearLayout>
+
+<View
+android:layout_width="match_parent"
+android:layout_height="2dp"
+android:background="@color/white"
+android:layout_below="@+id/ble_devices_header"/>
+
+<LinearLayout
+android:id="@+id/address"
+android:orientation="horizontal"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_margin="10dp">
+
+<TextView android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Device Address:"
+    android:textSize="14sp" />
+
+<Space android:layout_width="5dp"
+    android:layout_height="wrap_content"/>
+
+<TextView android:id="@+id/device_address"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="dummy address"
+    android:textSize="17sp"/>
+
+</LinearLayout>
+
+<View
+android:layout_width="match_parent"
+android:layout_height="2dp"
+android:background="@color/white"
+android:layout_below="@+id/ble_devices_header"/>
+
+<LinearLayout
+android:id="@+id/connection"
+android:orientation="horizontal"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_margin="10dp">
+
+<TextView android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Connection Status:"
+    android:textSize="14sp" />
+
+<Space android:layout_width="5dp"
+    android:layout_height="wrap_content"/>
+
+<TextView android:id="@+id/device_conection"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Connecting..."
+    android:textSize="17sp"/>
+
+</LinearLayout>
+
+<View
+android:layout_width="match_parent"
+android:layout_height="2dp"
+android:background="@color/white"
+android:layout_below="@+id/ble_devices_header"/>-->
